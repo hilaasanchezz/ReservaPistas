@@ -1,0 +1,158 @@
+/* RESET */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", "Inter", Arial, sans-serif;
+    background-color: #0f0f0f;
+}
+
+/* HEADER */
+header {
+    height: 70px;
+    background-color: #2e8b57;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);  /* sombra */
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo img {
+    height: 85px;
+}
+
+.usuario {
+    font-size: 26px;
+    text-decoration: none;
+    color: white;
+}
+
+.volverInicio img {
+    width: 26px;
+    height: 26px;
+}
+
+/* FONDO */
+main {
+    min-height: calc(100vh - 70px);
+    background: url("deportes.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* CAPA OSCURA */
+.overlay {
+    min-height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.277),
+        rgba(0, 0, 0, 0.325)
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 0 80px;
+    color: white;
+}
+
+
+/* CAJA */
+.cajaHorarios {
+    width: 90vw;
+    max-width: 1150px;
+    background: rgba(20, 20, 20, 0.486);
+    padding: 55px;
+    border-radius: 28px;
+    box-shadow:
+        0 30px 70px rgba(0,0,0,0.7),
+        0 0 0 1px rgba(255,255,255,0.05);
+}
+
+/* DEPORTE y FECHA*/
+.deporteSelector {
+    width: 100%;
+    background: rgba(25, 25, 25, 0.563);
+    padding: 28px;
+    border-radius: 18px;
+    margin-bottom: 40px;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.fechaSelector {
+    width: 100%;
+    background: rgba(25, 25, 25, 0.563);
+    padding: 28px;
+    border-radius: 18px;
+    margin-bottom: 40px;
+    font-size: 28px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.deporteSelector:hover,
+.fechaSelector:hover {
+    background: rgba(40, 40, 40, 0.95);
+}
+
+
+/* GRID */
+.horarios {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);  /* 6 por fila fijos */
+    gap: 25px;                              /* más aire */
+}
+
+
+/* BOTONES */
+.horarios button {
+    padding: 18px 10px;
+    border-radius: 50px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    background-color: #f1f1f1;
+    transition: all 0.25s ease;
+}
+
+.horarios button:hover {
+    background-color: #2e8b57;
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(46,139,87,0.4);
+}
+
+/* BLOQUES POR PISTA */
+.bloque {
+    margin-bottom: 50px;
+}
+
+/* TITULO PISTA */
+.tituloPista {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #dcdcdc;
+}
