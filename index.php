@@ -1,4 +1,6 @@
 <?php
+    include('loginSesion.php');
+
     // Carga la conexión
     include('conexion.php');
 
