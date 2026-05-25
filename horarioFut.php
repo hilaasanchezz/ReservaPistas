@@ -1,3 +1,9 @@
+<?php
+    include('loginSesion.php');
+
+    include('conexion.php');
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -7,23 +13,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seleccionar horario</title>
-    <link rel="stylesheet" href="horario.css">
+    <link rel="stylesheet" href="css/horario.css">
 </head>
 
 
 
 <body>
-<header>
-    <a href="index.php" class="volverInicio">
-        <img src="casa.svg" alt="Inicio">
-    </a>
-
-    <div class="logo">
-        <img src="logo_sin_fondo.png" alt="Logo">
-    </div>
-
-    <a href="login.php" class="usuario">👤</a>
-</header>
+    <?php
+        include ('navegador.php');
+    ?>
 
 
 
@@ -35,9 +33,9 @@
         <div class="cajaHorarios">
 
             <div class="deporteSelector">
-                <a href="horarioBasket.html"><span class="flecha">‹</span></a>
+                <a href="horarioBasket.php"><span class="flecha">‹</span></a>
                 <span class="tituloCentro"><strong>FÚTBOL</strong></span>
-                <a href="horarioTenis.html"><span class="flecha">›</span></a>
+                <a href="horarioTenis.php"><span class="flecha">›</span></a>
             </div>
 
             <div class="fechaSelector">

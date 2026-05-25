@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['entrar'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pistas Jacarilla - Login</title>
     <link rel="icon" type="image/png" href="logo.png">
-    <link rel="stylesheet" href="inicioSesion.css">
+    <link rel="stylesheet" href="css/inicioSesion.css">
 </head>
 
 <body>

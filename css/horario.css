@@ -8,43 +8,12 @@ body {
     background-color: #0f0f0f;
 }
 
-/* HEADER */
-header {
-    height: 70px;
-    background-color: #2e8b57;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 25px;
-    position: relative;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.4);  /* sombra */
-}
 
-.logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.logo img {
-    height: 85px;
-}
-
-.usuario {
-    font-size: 26px;
-    text-decoration: none;
-    color: white;
-}
-
-.volverInicio img {
-    width: 26px;
-    height: 26px;
-}
 
 /* FONDO */
 main {
     min-height: calc(100vh - 70px);
-    background: url("deportes.jpg");
+    background: url("../fotos/deportes.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

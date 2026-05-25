@@ -23,7 +23,7 @@ try {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pistas Jacarilla</title>
-        <link rel="stylesheet" href="inicio.css">
+        <link rel="stylesheet" href="css/inicio.css">
     </head>
 
     <body>
@@ -52,7 +52,7 @@ try {
 
                 <div class="tarjetas">
                     
-                    <a href="horarioFut.html" class="card futbol">
+                    <a href="horarioFut.php" class="card futbol">
                         <div class="contenido">
                             <h3>FÚTBOL</h3>
                             <p>3 pistas disponibles</p>
@@ -60,7 +60,7 @@ try {
                         </div>
                     </a>
 
-                    <a href="horarioTenis.html" class="card tenis">
+                    <a href="horarioTenis.php" class="card tenis">
                         <div class="contenido">
                             <h3>TENIS</h3>
                             <p>3 pistas disponibles</p>
@@ -68,7 +68,7 @@ try {
                         </div>
                     </a>
 
-                    <a href="horarioBasket.html" class="card baloncesto">
+                    <a href="horarioBasket.php" class="card baloncesto">
                         <div class="contenido">
                             <h3>BALONCESTO</h3>
                             <p>3 pistas disponibles</p>

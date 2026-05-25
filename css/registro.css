@@ -31,16 +31,16 @@ header {
 }
 
 /* FONDO */
-.inicioSesionEntero {
+.registroEntero {
     height: calc(100vh - 70px);
-    background-image: url("deportes.jpg");
+    background-image: url("../fotos/deportes.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
 }
 
 /* CAPA OSCURA */
-.inicioSesionEntero::before {
+.registroEntero::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -57,7 +57,7 @@ header {
 }
 
 /* CAJA CENTRAL */
-.inicioSesion {
+.registro {
     background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
@@ -83,7 +83,7 @@ header {
 }
 
 /* TÍTULO */
-.inicioSesion h2 {
+.registro h2 {
     text-align: center;
     margin-bottom: 30px;
     font-size: 24px;
@@ -91,7 +91,7 @@ header {
 }
 
 /* ESTILOS */
-.inicioSesion input {
+.registro input {
     width: 100%;
     padding: 13px;
     margin-bottom: 16px;
@@ -99,16 +99,16 @@ header {
     border: none;
     background: rgba(255, 255, 255, 0.9);
     font-size: 14px;
-    box-sizing: border-box;    /* el padding no aumenta el ancho real */
+    box-sizing: border-box;   /* el padding no aumenta el ancho real */
 }
 
-.inicioSesion input:focus {
+.registro input:focus {
     outline: none;   /* quita el borde azul típico del navegador */
     box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.35);   /* añade un delineado para remarcarlo cuando está activo */
 }
 
 /* BOTÓN */
-.inicioSesion button {
+.registro button {
     width: 100%;
     padding: 13px;
     margin-top: 6px;
@@ -122,20 +122,20 @@ header {
     transition: 0.2s;
 }
 
-.inicioSesion button:hover {
+.registro button:hover {
     background-color: #256f46;
     transform: translateY(-1px);
 }
 
 /* TEXTO */
-.inicioSesion p {
+.registro p {
     text-align: center;
     margin-top: 20px;
     font-size: 13px;
     opacity: 0.9;
 }
 
-.inicioSesion a {
+.registro a {
     color: #7CFFB2;
     text-decoration: none;
     font-weight: bold;

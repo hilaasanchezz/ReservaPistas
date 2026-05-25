@@ -4,15 +4,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pistas Jacarilla</title>
-        <link rel="stylesheet" href="inicio.css">
+        <link rel="stylesheet" href="css/navegador.css">
     </head>
     <body>
 
         <header>
-            <div class="menu">☰</div>
+            <a href="index.php" class="volverInicio">
+                <img src="fotos/casa.svg" alt="Inicio">
+            </a>
 
             <div class="logo">
-                <img src="logo_sin_fondo.png" alt="Logo">
+                <img src="fotos/logo_sin_fondo.png" alt="Pistas Jacarilla">
             </div>
 
             <div class="contenedor-usuario">
