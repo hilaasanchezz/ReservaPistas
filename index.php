@@ -1,3 +1,25 @@
+<?php
+// Configuración de la conexión a tu base de datos de XAMPP
+$host = "localhost";
+$usuario = "root";
+$password = "";
+$base_datos = "reservas_deportivas";
+
+try {
+    // Creamos la conexión PDO
+    $conexion = new PDO("mysql:host=$host;dbname=$base_datos;charset=utf8", $usuario, $password);
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    // Hacemos la consulta para traer a los usuarios (como Manolo)
+    $consulta = $conexion->query("SELECT * FROM usuarios");
+    $lista_usuarios = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+} catch (PDOException $e) {
+    // Si falla la conexión, te mostrará el error en la pantalla
+    die("Error de conexión con la base de datos: " . $e->getMessage());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
