@@ -1,5 +1,6 @@
 <?php 
-session_start();
+include('loginSesion2.php');
+
 include('conexion.php');
 
 // 1. Solo actuamos si el usuario envía el formulario

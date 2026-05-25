@@ -12,5 +12,5 @@
         ';
         session_destroy();
         die();
-    }    
+    }
 ?>

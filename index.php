@@ -1,36 +1,20 @@
 <?php
-    include('loginSesion.php');
+include('loginSesion.php');
 
-    // Carga la conexión
-    include('conexion.php');
+include('conexion.php');
 
-    try {
+$email_sesion = $_SESSION['email'];
 
-        # Revisa si el usuario tiene controles abiertos
-        $sql = 'SELECT * FROM usuarios';
+try {
+    // Buscamos los datos actualizados del usuario en la base de datos
+    $sql = "SELECT nombre, email FROM usuarios WHERE email = ?";
+    $stmt = $conexion->prepare($sql);
+    $stmt->execute([$email_sesion]);
+    $usuario_datos = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        # Prepara la consulta
-        $stmt = $conexion->prepare($sql);
-        # Prepara la llamada de la consulta
-        $is_insert = $stmt->execute();
-
-        # Ejecuta la llamada
-        $is_usuarios_array = $stmt->fetch(PDO::FETCH_ASSOC);
-        echo "<pre>";
-            print_r($is_usuarios_array);
-        echo "</pre>";
-
-        # Para liberar los recursos utilizados en la consulta SELECT
-        $stmt = null;
-        $conexion = null;
-
-    } catch(PDOException $e) {
-        echo $e->getMessage();
-
-        $stmt = null;
-        $conexion = null;
-    }
-
+} catch (PDOException $e) {
+    echo "Error al cargar el perfil: " . $e->getMessage();
+}
 ?>
 
 <!DOCTYPE html>
@@ -44,15 +28,9 @@
 
     <body>
 
-        <header>
-            <div class="menu">☰</div>
-
-            <div class="logo">
-                <img src="logo_sin_fondo.png" alt="Logo">
-            </div>
-
-            <a href="inicioSesion.html" class="usuario">👤</a>
-        </header>
+        <?php
+            include ('navegador.php');
+        ?>
 
         <main>
             <div class="overlay">

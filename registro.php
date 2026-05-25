@@ -1,4 +1,6 @@
 <?php
+include('loginSesion2.php');
+
 // Carga la conexión
 include('conexion.php');
 
@@ -28,8 +30,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registrar'])) {
             $is_insert = $stmt->execute([$nombre, $email, $contrasena_encriptada]);
 
             if ($is_insert) {
+                session_start();
+
+                // Guardamos el email y el nombre en la sesión
+                $_SESSION['email'] = $email;
+                $_SESSION['nombre'] = $nombre;
+
                 echo "<script>alert('¡Usuario registrado con éxito!');</script>";
-                // Aquí podrías redirigir al login si quisieras: header('Location: inicioSesion.html');
+                header('Location: index.php');
             }
 
             // Liberar recursos
@@ -63,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registrar'])) {
 <body>
 
     <header>
-        <a href="index.html" class="volverInicio"><img src="casa.svg"></a>
+        <a href="index.php" class="volverInicio"><img src="casa.svg"></a>
 
         <div class="logo">
             <img src="logo_sin_fondo.png" alt="Pistas Jacarilla">
@@ -82,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registrar'])) {
                     <input type="password" name="confirmar_contrasena" placeholder="Confirmar contraseña" required>
                     <button type="submit" name="registrar">Registrarse</button>
                 </form>
-                <p>¿Ya tienes cuenta? <a href="inicioSesion.html">Inicia sesión</a></p>
+                <p>¿Ya tienes cuenta? <a href="login.php">Inicia sesión</a></p>
             </div>
         </div>
     </div>

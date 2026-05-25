@@ -174,3 +174,71 @@ h1 {
 
 
 
+/* ==========================================
+   ESTILOS PARA EL DESPLEGABLE DE USUARIO 
+   ========================================== */
+
+.contenedor-usuario {
+    position: relative;
+    display: inline-block;
+}
+
+/* Reutilizamos o mejoramos tu clase .usuario */
+.usuario {
+    text-decoration: none;
+    font-size: 24px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.menu-desplegable {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
+    border-radius: 6px;
+    z-index: 100;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+.menu-desplegable .bienvenida {
+    padding: 12px 16px;
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #666666;
+    border-bottom: 1px solid #eeeeee;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+.menu-desplegable a {
+    color: #333333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: sans-serif;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.menu-desplegable a:hover {
+    background-color: #f5f5f5;
+}
+
+/* Color especial para el botón de cerrar sesión */
+.menu-desplegable a.logout {
+    color: #de3545;
+    border-top: 1px solid #eeeeee;
+}
+
+.menu-desplegable a.logout:hover {
+    background-color: #fdf2f2;
+}
+
+/* Mostrar el menú al pasar el cursor sobre el contenedor */
+.contenedor-usuario:hover .menu-desplegable {
+    display: block;
+}
