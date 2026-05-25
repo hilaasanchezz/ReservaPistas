@@ -58,11 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['entrar'])) {
 <body>
 
     <header>
-        <a href="index.php" class="volverInicio">
-            <img src="casa.svg" alt="Inicio">
-        </a>
         <div class="logo">
-            <img src="logo_sin_fondo.png" alt="Pistas Jacarilla">
+            <img src="fotos/logo_sin_fondo.png" alt="Pistas Jacarilla">
         </div>
     </header>
 

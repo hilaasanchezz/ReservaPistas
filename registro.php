@@ -71,10 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registrar'])) {
 <body>
 
     <header>
-        <a href="index.php" class="volverInicio"><img src="casa.svg"></a>
-
         <div class="logo">
-            <img src="logo_sin_fondo.png" alt="Pistas Jacarilla">
+            <img src="fotos/logo_sin_fondo.png" alt="Pistas Jacarilla">
         </div>
     </header>
 
