@@ -48,31 +48,34 @@ header {
     display: inline-block;
 }
 
+/* MENÚ DESPLEGABLE */
 .menu-desplegable {
     display: none; /* Oculto por defecto */
     position: absolute;
     right: 0;
-    background-color: #ffffff;
+    background-color: #2e8b57; /* El mismo verde del navegador */
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3); /* Sombra un poco más intensa */
     border-radius: 6px;
     z-index: 100;
     overflow: hidden;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #1e5e3a; /* Borde más oscuro para cerrar el desplegable */
 }
 
+/* Texto con el nombre de usuario */
 .menu-desplegable .bienvenida {
     padding: 12px 16px;
     font-family: sans-serif;
     font-size: 13px;
-    color: #666666;
-    border-bottom: 1px solid #eeeeee;
+    color: #ffffff; /* Letras blancas */
+    border-bottom: 1px solid #1e5e3a;
     margin: 0;
-    background-color: #f9f9f9;
+    background-color: #236b43; /* Fondo más oscuro */
 }
 
+/* BOTONES GENERALES del desplegable */
 .menu-desplegable a {
-    color: #333333;
+    color: #ffffff; /* Letras blancas */
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -81,21 +84,24 @@ header {
     transition: background 0.2s ease;
 }
 
+/* Oscurece el botón sobre el que está el ratón en el desplegable */
 .menu-desplegable a:hover {
-    background-color: #f5f5f5;
+    background-color: #236b43; /* Oscurece el fondo al pasar el cursor */
+    color: #ffffff;
 }
 
-/* Color especial para el botón de cerrar sesión */
+/* BOTÓN CERRAR SESIÓN */
 .menu-desplegable a.logout {
-    color: #de3545;
-    border-top: 1px solid #eeeeee;
+    color: #ff8787; /* Tono rojizo para resaltar el cierre */
+    border-top: 1px solid #1e5e3a;
 }
 
 .menu-desplegable a.logout:hover {
-    background-color: #fdf2f2;
+    background-color: #8b2e2e; /* Oscurece el fondo al pasar el cursor */
+    color: #ffffff;
 }
 
-/* Mostrar el menú al pasar el cursor sobre el contenedor */
+/* Muestra el menú al pasar el cursor sobre el contenedor */
 .contenedor-usuario:hover .menu-desplegable {
-    display: block;
+    display: block; /* Sin esto el desplegable no funciona */
 }
