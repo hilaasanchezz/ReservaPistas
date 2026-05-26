@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden; /* Desactiva la barra de desplazamiento */
+}
+
+/* CONTENEDOR PRINCIPAL (Fondo con la imagen de deportes) */
+.perfilEntero {
+    height: calc(100vh - 70px);
+    background-image: url("../fotos/deportes.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* CAPA OSCURA */
+.perfilEntero::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* Estira la capa hacia los 4 lados */
+    background: rgba(0, 0, 0, 0.55);
+}
+
+/* CENTRADO DEL FORMULARIO */
+.overlay {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CAJA CENTRAL */
+.perfilContenedor {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px); /* Desenfoca la imagen de fondo que está detrás de la tarjeta */
+    -webkit-backdrop-filter: blur(14px); /* Lo mismo de arriba pero utilizado para que funcione en el navegador Safari */
+    padding: 40px;
+    width: 360px;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: white;
+    animation: aparecer 0.35s ease; /* Activa la animación que está a continución */
+}
+
+/* Animación de entrada */
+@keyframes aparecer {
+    /* Estado inicial */
+    from {
+        transform: scale(0.97); /* La caja empieza un 3% más pequeña de su tamaño real */
+        opacity: 0; /* Empieza totalmente invisible (transparente) */
+    }
+    /* Estado final */
+    to {
+        transform: scale(1); /* La caja llega a su tamaño original (100%) */
+        opacity: 1; /* Se vuelve completamente visible */
+    }
+}
+
+/* TÍTULO PRINCIPAL "Mi Perfil" */
+.perfilContenedor h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* SUBTÍTULO */
+.subtitulo {
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* Espaciador de los campos de texto del usuario */
+.grupo-input {
+    text-align: left;
+    margin-bottom: 16px;
+}
+
+/* Estilo para los títulos (Nombre de usuario / Correo electrónico) */
+.grupo-input label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+/* Estilo para los datos del usuario */
+.grupo-input input {
+    width: 100%;
+    padding: 13px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    color: #333333; /* Texto oscuro para que se lea bien */
+    box-sizing: border-box; /* El padding no aumenta el ancho real, por lo que utilizamos esta línea para que el tamaño del campo no se estire de más y se mantenga en la tarjeta */
+}
+
+/* Quita el borde que pintan por defecto los navegadores */
+.grupo-input input:focus {
+    outline: none;
+}
