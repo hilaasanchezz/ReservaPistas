@@ -12,6 +12,9 @@ try {
     $stmt->execute([$email_sesion]);
     $usuario_datos = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    $nombre_usuario = $usuario_datos['nombre'];
+    $_SESSION['nombre'] = $nombre_usuario; // Esta session ha hecho falta para poder mostrar el nombre en el perfil de las pistas
+
 } catch (PDOException $e) {
     echo "Error al cargar el perfil: " . $e->getMessage();
 }

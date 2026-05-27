@@ -21,7 +21,7 @@
                 
                     <span class="usuario">👤</span>
                     <div class="menu-desplegable">
-                        <p class="bienvenida">Hola, <?php echo htmlspecialchars($usuario_datos['nombre']); ?></p>
+                        <p class="bienvenida">Hola, <?php echo htmlspecialchars($_SESSION['nombre']); ?></p>
                         <a href="perfil.php">⚙️ Mi Perfil</a>
                         <a href="cerrarSesion.php" class="logout">❌ Cerrar sesión</a>
                     </div>
