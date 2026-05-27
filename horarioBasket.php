@@ -47,6 +47,7 @@
             <div class="bloque">
                 <h2 class="tituloPista">Cancha 1</h2>
                 <?php
+                    $id_pista_actual = 7;
                     include ('horas.php');
                 ?>   
             </div>
@@ -54,6 +55,7 @@
             <div class="bloque">
                 <h2 class="tituloPista">Cancha 2</h2>
                 <?php
+                    $id_pista_actual = 8;
                     include ('horas.php');
                 ?> 
             </div>
@@ -61,6 +63,7 @@
             <div class="bloque">
                 <h2 class="tituloPista">Cancha cubierta</h2>
                 <?php
+                    $id_pista_actual = 9;
                     include ('horas.php');
                 ?> 
             </div>

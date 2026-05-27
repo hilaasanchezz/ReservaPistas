@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['entrar'])) {
         if ($row && password_verify($contrasena, $row['contraseña'])) {
             
             // Guardamos el email y el nombre en la sesión
+            $_SESSION['id'] = $row['id'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['nombre'] = $row['nombre'];
             
