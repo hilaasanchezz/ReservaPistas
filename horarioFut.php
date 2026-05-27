@@ -46,38 +46,23 @@
 
             <div class="bloque">
                 <h2 class="tituloPista">Campo</h2>
-                <div class="horarios">
-                    <button>08:00 / 10:00</button>
-                    <button>10:15 / 10:45</button>
-                    <button>11:00 / 13:00</button>
-                    <button>16:00 / 18:00</button>
-                    <button>18:15 / 18:45</button>
-                    <button>19:00 / 21:00</button>
-                </div>    
+                <?php
+                    include ('horas.php');
+                ?>  
             </div>
 
             <div class="bloque">
                 <h2 class="tituloPista">Campo infantil</h2>
-                    <div class="horarios">
-                    <button>08:00 / 10:00</button>
-                    <button>10:15 / 10:45</button>
-                    <button>11:00 / 13:00</button>
-                    <button>16:00 / 18:00</button>
-                    <button>18:15 / 18:45</button>
-                    <button>19:00 / 21:00</button>
-                </div>
+                <?php
+                    include ('horas.php');
+                ?> 
             </div>
 
             <div class="bloque">
                 <h2 class="tituloPista">Fútbol sala</h2>
-                    <div class="horarios">
-                    <button>08:00 / 9:15</button>
-                    <button>9:45 / 11:00</button>
-                    <button>11:30 / 12:45</button>
-                    <button>16:15 / 17:30</button>
-                    <button>18:00 / 19:15</button>
-                    <button>19:45 / 21:00</button>
-                </div>
+                <?php
+                    include ('horas.php');
+                ?> 
             </div>
         </div>
     </div>
