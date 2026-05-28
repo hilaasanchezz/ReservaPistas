@@ -4,8 +4,6 @@ body {
     background-color: #0f0f0f;
 }
 
-
-
 /* FONDO */
 main {
     min-height: calc(100vh - 70px);
@@ -48,17 +46,6 @@ h1 {
     justify-content: center;
 }
 
-.selector {
-    background: rgba(20, 20, 20, 0.85);
-    padding: 14px 18px;
-    border-radius: 8px;
-    min-width: 260px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 16px;
-}
-
 /* TARJETAS */
 .tarjetas {
     width: 100%;
@@ -67,6 +54,9 @@ h1 {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px;
     padding: 0 20px;
+    
+    /* Baja las tarjetas sin mover los títulos */
+    margin-top: 50px;
 }
 
 .card {
@@ -139,51 +129,4 @@ h1 {
 .precio {
     font-weight: bold;
     font-size: 15px;
-}
-
-/* ==========================================================================
-   ESTILOS PARA EL SELECTOR DE FECHA PERSONALIZADO
-   ========================================================================== */
-
-/* Ajustamos el contenedor del formulario para que use todo el espacio */
-.selector form {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Estilo para el input de fecha nativo */
-.selector input[type="date"] {
-    background: transparent; /* Eliminamos el fondo blanco */
-    border: none;
-    color: white; /* Texto en blanco */
-    font-family: "Segoe UI", "Inter", Arial, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    outline: none;
-    cursor: pointer;
-    width: 100%;
-    text-align: center;
-    text-transform: uppercase; /* Para que meses/formatos cortos queden estilizados */
-}
-
-/* Cambiar el color del icono del calendario nativo a blanco */
-.selector input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1) brightness(100%); /* Transforma el icono negro nativo a blanco */
-    cursor: pointer;
-    font-size: 18px;
-    transition: transform 0.2s ease;
-}
-
-/* Pequeño efecto dinámico al pasar el ratón sobre el icono del calendario */
-.selector input[type="date"]::-webkit-calendar-picker-indicator:hover {
-    transform: scale(1.15);
-}
-
-/* Compatibilidad para quitar bordes raros en sistemas operativos específicos */
-.selector input[type="date"]::-webkit-inner-spin-button,
-.selector input[type="date"]::-webkit-clear-button {
-    display: none;
-    -webkit-appearance: none;
 }

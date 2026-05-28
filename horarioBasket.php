@@ -48,11 +48,11 @@
                 
                 <div class="contenedor-desplegable">
                     <form id="formCalendario" action="horarioBasket.php" method="POST">
-                        // Tiene cargada la fecha actual en el atributo value
-                        // Y con el onchange, cuando el usuario cambia la fecha, este ejecuta el submit, actuando como un formulario, por lo que recarga la página estableciendo esa nueva fecha como la actual
+                        <?php// Tiene cargada la fecha actual en el atributo value?>
+                        <?php// Y con el onchange, cuando el usuario cambia la fecha, este ejecuta el submit, actuando como un formulario, por lo que recarga la página estableciendo esa nueva fecha como la actual?>
                         <input type="date" id="inputCalendarioHidden" name="fecha_actual" value="<?php echo $fecha_reserva; ?>" onchange="document.getElementById('formCalendario').submit();">
                     </form>
-                    // Al hacer 'onclick' (clic en el texto), JavaScript (con el uso de document, que es toda la web) busca en la pantalla el input oculto por su ID ('inputCalendarioHidden') y le ejecuta el '.showPicker()', que obliga al navegador a abrir y desplegar el calendario flotante
+                    <?php// Al hacer 'onclick' (clic en el texto), JavaScript (con el uso de document, que es toda la web) busca en la pantalla el input oculto por su ID ('inputCalendarioHidden') y le ejecuta el '.showPicker()', que obliga al navegador a abrir y desplegar el calendario flotante?>
                     <span class="tituloCentro" onclick="document.getElementById('inputCalendarioHidden').showPicker();">
                         <strong><?php echo $fecha_texto_dinamico; ?> ▾</strong>
                     </span>
