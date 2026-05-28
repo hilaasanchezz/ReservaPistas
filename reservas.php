@@ -25,12 +25,12 @@ if ($_POST) {
     $fecha = $_POST['fecha'];
     $hora = $_POST['hora'];
     
-    // Juntamos la fecha y la hora en una sola variable para cumplir con el formato DATETIME (YYYY-MM-DD HH:MM:SS)
-    $fecha_hora_inicio = $fecha . ' ' . $hora;
+    // CAPTURAMOS EL MÉTODO DE PAGO REAL SELECCIONADO (Tarjeta o Efectivo)
+    $metodo_pago = $_POST['metodo_pago']; 
     
-    // Definimos los valores por defecto para los ENUM de tu tabla
+    // Juntamos la fecha y la hora en formato DATETIME
+    $fecha_hora_inicio = $fecha . ' ' . $hora;
     $estado = 'Confirmada';
-    $metodo_pago = 'Tarjeta'; 
 
     try {
         // 4. Preparamos la consulta SQL utilizando marcadores para evitar Inyección SQL
@@ -48,10 +48,10 @@ if ($_POST) {
         
         // 5. Ejecutamos la inserción
         if ($stmt->execute()) {
-            // Si funciona, alerta visual de éxito y redirección al perfil para que vea su reserva
+            // Si funciona, alerta visual de éxito y redirección al perfil
             echo "<script>
-                    alert('¡Reserva realizada con éxito!');
-                    window.location.href = 'perfil.php';
+                    alert('¡Reserva realizada con éxito con pago por " . $metodo_pago . "!');
+                    window.location.href = 'index.php';
                   </script>";
             exit;
         } else {
@@ -64,8 +64,8 @@ if ($_POST) {
     }
 
 } else {
-    // Si alguien intenta entrar a reservas.php escribiendo la URL a mano en el navegador, lo mandamos a tenis
-    header('Location: horarioTenis.php');
+    // Si alguien intenta entrar a reservas.php escribiendo la URL a mano, es devuleto al login
+    header('Location: login.php');
     exit();
 }
 ?>

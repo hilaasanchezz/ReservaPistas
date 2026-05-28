@@ -2,6 +2,8 @@
     include('loginSesion.php');
 
     include('conexion.php');
+
+    $fecha_reserva = "2026-01-01";
 ?>
 
 <!DOCTYPE html>

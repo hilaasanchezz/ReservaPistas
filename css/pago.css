@@ -1,0 +1,50 @@
+/* css/pago.css */
+
+/* Texto con la información de la fecha y hora seleccionada */
+.texto-info {
+    color: #fff; /* O #333 si el fondo de tu formulario de login es blanco suelto */
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Estilo base para los botones, imitando el botón "Entrar" pero adaptado */
+.btn-pago {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-pago:active {
+    transform: scale(0.98);
+}
+
+/* Colores personalizados que combinan bien con interfaces oscuras/claras */
+.tarjeta {
+    background-color: #0070ba;
+    color: white;
+}
+
+.tarjeta:hover {
+    background-color: #005ea6;
+}
+
+.efectivo {
+    background-color: #28a745;
+    color: white;
+}
+
+.efectivo:hover {
+    background-color: #218838;
+}
