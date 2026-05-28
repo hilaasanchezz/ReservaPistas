@@ -246,3 +246,39 @@ main {
         font-size:18px;
     }
 }
+
+
+
+/* ==========================================================================
+   NUEVO SELECTOR DE FECHA CON FORMULARIOS (FLECHAS)
+   ========================================================================== */
+
+.fechaSelector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Formularios invisibles dentro del selector */
+.fechaSelector form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+/* Botón de la flecha que resetea el estilo nativo */
+.fechaSelector .btn-flecha {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0 15px;
+    outline: none;
+    transition: transform 0.2s ease;
+}
+
+/* Efecto sutil al pasar el ratón por encima de la flecha */
+.fechaSelector .btn-flecha:hover {
+    transform: scale(1.2);
+}

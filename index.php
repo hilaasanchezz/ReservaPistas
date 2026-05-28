@@ -41,17 +41,6 @@ try {
                 <h1>Reservar pista</h1>
                 <p class="subtitulo">Selecciona deporte y horario</p>
 
-                <div class="filtros">
-                    <div class="selector" id="fecha_reservas">
-                        <form action="index.php" method="POST">
-                            <?php 
-                                $fecha_seleccionada = isset($_POST['fecha_actual']) ? $_POST['fecha_actual'] : ''; 
-                            ?>
-                            <input type="date" id="fecha" name="fecha_actual" value="<?php echo $fecha_seleccionada; ?>" min="<?php echo date('Y-m-d')?>" required onchange="this.form.action = 'index.php'; this.form.submit();">
-                        </form>
-                    </div>
-                </div>
-
                 <div class="tarjetas">
                     
                     <a href="horarioFut.php" class="card futbol">
