@@ -46,7 +46,14 @@
                     <button type="submit" class="btn-flecha flecha">‹</button>
                 </form>
                 
-                <span class="tituloCentro"><strong><?php echo $fecha_texto_dinamico; ?></strong></span>
+                <div class="contenedor-desplegable">
+                    <form id="formCalendario" action="horarioBasket.php" method="POST">
+                        <input type="date" id="inputCalendarioHidden" name="fecha_actual" value="<?php echo $fecha_reserva; ?>" onchange="document.getElementById('formCalendario').submit();">
+                    </form>
+                    <span class="tituloCentro" onclick="document.getElementById('inputCalendarioHidden').showPicker();">
+                        <strong><?php echo $fecha_texto_dinamico; ?> ▾</strong>
+                    </span>
+                </div>
                 
                 <form action="horarioBasket.php" method="POST">
                     <input type="hidden" name="fecha_actual" value="<?php echo $fecha_siguiente->format('Y-m-d'); ?>">

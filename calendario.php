@@ -2,6 +2,14 @@
     // Captura la fecha por POST si se pulsan las flechas. Si no, cargamos el día de hoy por defecto.
     $fecha_actual_sistema = isset($_POST['fecha_actual']) ? $_POST['fecha_actual'] : date('Y-m-d');
     
+    // Conseguimos la fecha de hoy real del servidor para comparar
+    $fecha_hoy = date('Y-m-d');
+
+    // Si por algún motivo la fecha seleccionada es menor que hoy, la obligamos a ser hoy
+    if ($fecha_actual_sistema < $fecha_hoy) {
+        $fecha_actual_sistema = $fecha_hoy;
+    }
+
     // Guarda en la variable que lee 'horas.php'
     $fecha_reserva = $fecha_actual_sistema;
 

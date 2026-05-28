@@ -282,3 +282,69 @@ main {
 .fechaSelector .btn-flecha:hover {
     transform: scale(1.2);
 }
+
+
+/* ==========================================================================
+   CALENDARIO OCULTO EN LA FECHA
+   ========================================================================== */
+
+/* Alineación general del contenedor de la fecha y las flechas */
+.fechaSelector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Forzamos a que los formularios internos no rompan el flujo horizontal */
+.fechaSelector form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para los botones de las flechas (‹ y ›) */
+.fechaSelector .btn-flecha {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0 15px;
+    outline: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Efecto visual al pasar el cursor sobre las flechas */
+.fechaSelector .btn-flecha:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+/* Contenedor relativo para posicionar el input invisible */
+.contenedor-desplegable {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilo para el texto central de la fecha clickable */
+.contenedor-desplegable .tituloCentro {
+    cursor: pointer;
+    user-select: none;
+    transition: opacity 0.2s ease;
+}
+
+/* Efecto de feedback al pasar el ratón por encima del texto de la fecha */
+.contenedor-desplegable .tituloCentro:hover {
+    opacity: 0.7;
+}
+
+/* Ocultamos por completo el input nativo en el DOM visual, pero sigue operativo para que JavaScript abra el calendario picker */
+#inputCalendarioHidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+}
