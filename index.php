@@ -42,14 +42,13 @@ try {
                 <p class="subtitulo">Selecciona deporte y horario</p>
 
                 <div class="filtros">
-                    <div class="selector">
-                        📅 <span><strong>Fecha:</strong> 01 enero 2026</span>
-                        <span class="flecha">▾</span>
-                    </div>
-
-                    <div class="selector">
-                        🕒 <span><strong>Hora:</strong> Seleccionar</span>
-                        <span class="flecha">▾</span>
+                    <div class="selector" id="fecha_reservas">
+                        <form action="index.php" method="POST">
+                            <label></label>
+                            <input type="date" id="fecha" name="fecha_actual" min="<?php echo date('Y-m-d')?>" required onchange="this.form.action = 'index.php#fecha_reservas'; $this.form.submit();">
+                        </form>
+                        <!--📅 <span><strong>Fecha:</strong> 01 enero 2026</span>
+                        <span class="flecha">▾</span>-->
                     </div>
                 </div>
 
