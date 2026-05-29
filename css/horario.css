@@ -122,7 +122,9 @@ main {
 }
 
 
-/* BOTONES */
+/* ==========================================================================
+   BOTONES
+   ========================================================================== */
 .horarios button {
     padding: 18px 10px;
     border-radius: 50px;
@@ -140,6 +142,19 @@ main {
     transform: translateY(-4px);
     box-shadow: 0 10px 25px rgba(46,139,87,0.4);
 }
+
+/* Estilos para deshabilitar y colorear los botones ya reservados (!important sirve para forzar a que una regla se cumpla) */
+.horarios button:disabled {
+    background-color: #3a1a1a !important;
+    color: #777777 !important; /* Color del texto */
+    cursor: default !important; /* Pone el cursor predeterminado */
+    transform: none !important; /* Cancela el efecto de elevarse */
+    box-shadow: none !important; /* Cancela la sombra de pasar con el cursor */
+}
+
+
+
+
 
 /* BLOQUES POR PISTA */
 .bloque {
@@ -160,7 +175,9 @@ main {
 
 
 
-/* DISEÑO RESPONSIVE */
+/* ==========================================================================
+   DISEÑO RESPONSIVE
+   ========================================================================== */
 
 /* TABLET */
 @media (max-width: 1024px){

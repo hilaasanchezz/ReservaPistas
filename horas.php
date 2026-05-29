@@ -1,45 +1,58 @@
 <div class="horarios">
-    
-    <form action="metodoPago.php" method="POST" style="display:inline;">
-        <input type="hidden" name="id_pista" value="<?php echo $id_pista_actual; ?>">
-        <input type="hidden" name="fecha" value="<?php echo $fecha_reserva; ?>">
-        <input type="hidden" name="hora" value="08:00:00">
-        <button type="submit">08:00 / 10:00</button>
-    </form>
+    <?php 
+    // Array con todos los tramos horarios disponibles
+    $intervalos = [
+        ["bd" => "08:00:00", "texto" => "08:00 / 10:00"],
+        ["bd" => "10:15:00", "texto" => "10:15 / 10:45"],
+        ["bd" => "11:00:00", "texto" => "11:00 / 13:00"],
+        ["bd" => "16:00:00", "texto" => "16:00 / 18:00"],
+        ["bd" => "18:15:00", "texto" => "18:15 / 18:45"],
+        ["bd" => "19:00:00", "texto" => "19:00 / 21:00"]
+    ];
 
-    <form action="metodoPago.php" method="POST" style="display:inline;">
-        <input type="hidden" name="id_pista" value="<?php echo $id_pista_actual; ?>">
-        <input type="hidden" name="fecha" value="<?php echo $fecha_reserva; ?>">
-        <input type="hidden" name="hora" value="10:15:00">
-        <button type="submit">10:15 / 10:45</button>
-    </form>
+    // El bucle 'for' recorre los 6 intervalos de uno en uno
+    for ($i = 0; $i < count($intervalos); $i++) {
+        
+        // Extraemos la hora para la Base de Datos y el texto para el botón
+        $hora_bd = $intervalos[$i]["bd"];
+        $hora_texto = $intervalos[$i]["texto"];
 
-    <form action="metodoPago.php" method="POST" style="display:inline;">
-        <input type="hidden" name="id_pista" value="<?php echo $id_pista_actual; ?>">
-        <input type="hidden" name="fecha" value="<?php echo $fecha_reserva; ?>">
-        <input type="hidden" name="hora" value="11:00:00">
-        <button type="submit">11:00 / 13:00</button>
-    </form>
+        // Juntamos el día y la hora en una sola cadena para tu campo 'fecha_hora_inicio'
+        $fecha_hora_combinada = $fecha_reserva . " " . $hora_bd;
 
-    <form action="metodoPago.php" method="POST" style="display:inline;">
-        <input type="hidden" name="id_pista" value="<?php echo $id_pista_actual; ?>">
-        <input type="hidden" name="fecha" value="<?php echo $fecha_reserva; ?>">
-        <input type="hidden" name="hora" value="16:00:00">
-        <button type="submit">16:00 / 18:00</button>
-    </form>
+        // CONSULTA EN SINTAXIS PDO: Preparamos la consulta de forma segura con marcadores (:pista, :fecha_hora)
+        $sql = "SELECT id_reserva FROM reservas WHERE id_pista = :pista AND fecha_hora_inicio = :fecha_hora";
+        
+        // Supongamos que tu variable de conexión PDO se llama $conexion (si se llama $conn, cambia $conexion por $conn abajo)
+        $stmt = $conexion->prepare($sql);
+        
+        // Ejecutamos la consulta pasando las variables reales a los marcadores
+        $stmt->execute([
+            ':pista' => $id_pista_actual,
+            ':fecha_hora' => $fecha_hora_combinada
+        ]);
 
-    <form action="metodoPago.php" method="POST" style="display:inline;">
-        <input type="hidden" name="id_pista" value="<?php echo $id_pista_actual; ?>">
-        <input type="hidden" name="fecha" value="<?php echo $fecha_reserva; ?>">
-        <input type="hidden" name="hora" value="18:15:00">
-        <button type="submit">18:15 / 18:45</button>
-    </form>
+        // En PDO, contamos las filas usando rowCount()
+        if ($stmt->rowCount() > 0) {
+            $esta_ocupada = true;
+        } else {
+            $esta_ocupada = false;
+        }
 
-    <form action="metodoPago.php" method="POST" style="display:inline;">
-        <input type="hidden" name="id_pista" value="<?php echo $id_pista_actual; ?>">
-        <input type="hidden" name="fecha" value="<?php echo $fecha_reserva; ?>">
-        <input type="hidden" name="hora" value="19:00:00">
-        <button type="submit">19:00 / 21:00</button>
-    </form>
-
+        // CONTROL VISUAL: Si está ocupada, pintamos el botón bloqueado
+        if ($esta_ocupada == true) { ?>
+            <button type="button" class="hora-ocupada" disabled><?php echo $hora_texto; ?> - Ocupado</button>
+        <?php } 
+        
+        // Si está libre, pinta el formulario dinámico habitual
+        else { ?>
+            <form action="metodoPago.php" method="POST" style="display:inline;">
+                <input type="hidden" name="id_pista" value="<?php echo $id_pista_actual; ?>">
+                <input type="hidden" name="fecha" value="<?php echo $fecha_reserva; ?>">
+                <input type="hidden" name="hora" value="<?php echo $hora_bd; ?>">
+                <button type="submit"><?php echo $hora_texto; ?></button>
+            </form>
+        <?php } 
+    } 
+    ?>
 </div>
