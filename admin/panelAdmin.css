@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+
+/* ==========================================================================
+   BARRA LATERAL
+   ========================================================================== */
+
+/* CONTENEDOR GENERAL */
+.contenedor-panel {
+    display: flex;
+    min-height: 100vh; /* Fuerza al panel a ocupar toda la altura de la pantalla */
+}
+
+.barra-lateral {
+    width: 260px;
+    background-color: #1e293b; 
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-admin img {
+    width: 100%;
+    max-width: 150px;
+    display: block;
+    margin: 0 auto 30px auto; /* Centra el logo y le da espacio abajo */
+}
+
+.menu-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu-admin a {
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+.menu-admin a:hover, 
+.menu-admin a.active {
+    background-color: #334155;
+    color: #fff;
+    transform: translateX(5px); /* Pequeño salto lateral al pasar el ratón */
+}
+
+.menu-admin .btn-volver {
+    margin-top: 50px; /* Desplaza el botón hacia abajo separándolo del menú */
+    background-color: #0284c7;
+    color: white;
+    text-align: center;
+}
+
+.menu-admin .btn-volver:hover {
+    background-color: #0369a1;
+    transform: none; /* Cancela el salto lateral en el botón de Visitar la Web */
+}
+
+
+/* ==========================================================================
+   CONTENIDO PRINCIPAL
+   ========================================================================== */
+
+.contenido-principal {
+    flex: 1; /* Ocupa todo el espacio restante a la derecha de la barra lateral */
+    padding: 30px;
+}
+
+/* BARRA SUPERIOR */
+.header-top {
+    display: flex;
+    justify-content: space-between; /* Separa el título del nombre del usuario */
+    align-items: center;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+/* Alinea verticalmente el nombre del usuario y el botón para que queden centrados */
+.usuario-info {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Separa el nombre y el botón */
+}
+
+/* BOTON CERRAR SESION */
+.btn-cerrar {
+    background-color: #ef4444;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.25s ease;
+}
+
+.btn-cerrar:hover {
+    background-color: #dc2626;
+}
+
+
+/* ==========================================================================
+   TARJETAS DE DATOS (DASHBOARD)
+   ========================================================================== */
+
+.tarjetas-resumen {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajusta automáticamente las columnas según el tamaño de la pantalla */
+    gap: 20px;
+}
+
+.tarjeta {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #2e8b57; /* Línea verde a la izquierda de las tarjetas */
+}
+
+.tarjeta h3 {
+    font-size: 14px;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.tarjeta .numero {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1e293b;
+}

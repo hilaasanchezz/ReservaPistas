@@ -3,29 +3,36 @@ include('loginSesion2.php');
 
 include('conexion.php');
 
-// 1. Solo actuamos si el usuario envía el formulario
+// 1. Solo actua si el usuario envía el formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['entrar'])) {
     
     $email = $_POST['email'];
     $contrasena = $_POST['contrasena'];
 
     try {
-        // 2. Buscamos al usuario por su email (usando marcadores "?" por seguridad)
+        // 2. Busca al usuario por su email (usando marcadores "?" por seguridad)
         $sql = "SELECT * FROM usuarios WHERE email = ?";
         $stmt = $conexion->prepare($sql);
         $stmt->execute([$email]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // 3. Si el usuario existe, comprobamos la contraseña encriptada
+        // 3. Si el usuario existe, comprueba la contraseña encriptada
         if ($row && password_verify($contrasena, $row['contraseña'])) {
             
-            // Guardamos el email y el nombre en la sesión
+            // Guarda el email y el nombre en la sesión
             $_SESSION['id'] = $row['id'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['nombre'] = $row['nombre'];
-            
-            // Redirigimos a la página principal (index.php)
+            $_SESSION['admin'] = $row['ADMIN'];
+
+            // Guarda si es administrador (0 o 1)
+            if ($_SESSION['admin'] == 1) {
+                // Si es administrador, manda al panel de administración
+                header("Location: admin/panelAdmin.php");
+            } else {
+                // Si es un usuario normal, manda al inicio de la web
             header("Location: index.php");
+            }
             exit;
             
         } else {

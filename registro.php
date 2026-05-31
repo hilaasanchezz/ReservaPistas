@@ -1,38 +1,38 @@
 <?php
 include('loginSesion2.php');
 
-// Carga la conexión
+// Conecta con la base de datos
 include('conexion.php');
 
-// 1. Solo actuamos si el usuario ha pulsado el botón de "Registrarse"
+// 1. Solo actua si el usuario ha pulsado el botón de "Registrarse"
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registrar'])) {
     
-    // Recogemos los datos del formulario
+    // Recoge los datos del formulario
     $nombre = $_POST['nombre'];
     $email = $_POST['email'];
     $contrasena = $_POST['contrasena'];
     $confirmar_contrasena = $_POST['confirmar_contrasena'];
 
-    // 2. Validación básica: comprobar si las contraseñas coinciden
+    // 2. Comprueba si las contraseñas coinciden
     if ($contrasena !== $confirmar_contrasena) {
         echo "<script>alert('Las contraseñas no coinciden.');</script>";
     } else {
         try {
-            // 3. Sintaxis correcta para INSERT y marcadores (?) por seguridad anti-Hacks
+            // 3. Consulta SQL para INSERT y marcadores (?) por seguridad
             $sql = 'INSERT INTO usuarios (nombre, email, contraseña) VALUES (?, ?, ?)';
 
             // Prepara la consulta
             $stmt = $conexion->prepare($sql);
 
             // Ejecuta la consulta pasando los datos reales
-            // (Usamos password_hash para que la contraseña se guarde encriptada y segura)
+            // (Se usa password_hash para que la contraseña se guarde encriptada y segura)
             $contrasena_encriptada = password_hash($contrasena, PASSWORD_BCRYPT);
             $is_insert = $stmt->execute([$nombre, $email, $contrasena_encriptada]);
 
             if ($is_insert) {
                 session_start();
 
-                // Guardamos el email y el nombre en la sesión
+                // Guarda el email y el nombre en la sesión
                 $_SESSION['email'] = $email;
                 $_SESSION['nombre'] = $nombre;
 
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registrar'])) {
                 header('Location: index.php');
             }
 
-            // Liberar recursos
+            // Libera recursos
             $stmt = null;
             $conexion = null;
 

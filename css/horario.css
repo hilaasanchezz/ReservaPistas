@@ -127,6 +127,7 @@ main {
 /* ==========================================================================
    BOTONES
    ========================================================================== */
+   
 /* Obliga al formulario a rellenar por completo cada botón */
 .horarios form {
     display: block;
