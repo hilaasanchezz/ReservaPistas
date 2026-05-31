@@ -13,7 +13,7 @@
     // Guarda en la variable que lee 'horas.php'
     $fecha_reserva = $fecha_actual_sistema;
 
-    // Procesa el formateo de texto amigable en español
+    // Convierte el texto al formato con ortografía española
     $fecha_objeto = new DateTime($fecha_reserva);
     $fecha_anterior = clone $fecha_objeto;
     $fecha_anterior->modify('-1 day');

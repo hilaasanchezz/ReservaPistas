@@ -1,7 +1,7 @@
 <?php
 
 try {
-    # Creamos la conexión PDO
+    # Crea la conexión PDO
 
     $host='localhost';
     $dbname='reservas_deportivas';
@@ -15,7 +15,7 @@ try {
     # echo "Conexión realizada con éxito.";
 
 } catch (PDOException $e) {
-    # Si falla la conexión, te mostrará el error en la pantalla
+    # Si falla la conexión, mostrará el error en la pantalla
     die("Error de conexión con la base de datos: " . $e->getMessage());
 }
 ?>

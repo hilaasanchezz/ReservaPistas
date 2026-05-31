@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Si el usuario pulsó el botón de cerrar sesión...
+// Si el usuario pulsa el botón de cerrar sesión
 if (isset($_GET['action']) && $_GET['action'] === 'logout') {
     session_unset();     // Vacía los datos
     session_destroy();   // Destruye la sesión
@@ -18,17 +18,17 @@ if (!isset($_SESSION['id']) || $_SESSION['admin'] != 1) {
 try {
     include('../conexion.php');
 
-    // 1. Cuenta los usuarios totales
+    // Cuenta los usuarios totales
     $sqlUsuarios = "SELECT COUNT(*) AS total_users FROM usuarios"; /* La query */
     $stmtUsers = $conexion->query($sqlUsuarios); /* La conexion manda la query, y se guarda el resultado de la búsqueda en stmtUsers como paquete */
     $totalUsuarios = $stmtUsers->fetch(PDO::FETCH_ASSOC)['total_users']; /* El fetch(PDO::FETCH_ASSOC) abre el paquete y transforma el resultado en un array asociativo, y el total_users lee únicamente el número */
 
-    // 2. Cuenta las pistas activas
+    // Cuenta las pistas activas
     $sqlPistas = "SELECT COUNT(*) AS total_pistas FROM pistas";
     $stmtPistas = $conexion->query($sqlPistas);
     $totalPistas = $stmtPistas->fetch(PDO::FETCH_ASSOC)['total_pistas'];
 
-    // 3. Cuenta las reservas activas
+    // Cuenta las reservas activas
     $sqlReservas = "SELECT COUNT(*) AS total_reservas FROM reservas";
     $stmtReservas = $conexion->query($sqlReservas);
     $totalReservas = $stmtReservas->fetch(PDO::FETCH_ASSOC)['total_reservas'];
@@ -61,7 +61,7 @@ try {
             <nav class="menu-admin">
                 <a href="#" class="active">📊 Panel Principal</a>
                 <a href="#">📅 Reservas Activas</a>
-                <a href="#">👥 Usuarios</a>
+                <a href="editorUsuarios.php">👥 Usuarios</a>
                 <a href="#">🎾 Gestionar Pistas (PRÓXIMAMENTE)</a>
                 <a href="../index.php" class="btn-volver">Visitar la Web</a>
             </nav>

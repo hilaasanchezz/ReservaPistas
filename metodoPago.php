@@ -1,8 +1,8 @@
 <?php
-// 1. Validamos sesión
+
 include('loginSesion.php'); 
 
-// 2. Recogemos los datos que vienen de la hora seleccionada
+// Recoge los datos que vienen de la hora seleccionada
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_pista = $_POST['id_pista'];
     $fecha = $_POST['fecha'];

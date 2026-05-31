@@ -1,0 +1,217 @@
+/* ==========================================================================
+   PANEL DE CONTROL DE USUARIOS
+   ========================================================================== */
+
+/* Contenedor Principal */
+.gestion-seccion {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.header-seccion {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-seccion h3 {
+    font-size: 18px;
+    color: #1e293b;
+}
+
+
+/* ==========================================================================
+   BOTÓN AÑADIR NUEVO USUARIO
+   ========================================================================== */
+
+.btn-crear {
+    background-color: #2e8b57;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+    transition: background 0.25s ease;
+}
+
+.btn-crear:hover {
+    background-color: #236942;
+}
+
+
+/* ==========================================================================
+   LISTA DE USUARIOS
+   ========================================================================== */
+
+.tabla-contenedor {
+    overflow-x: auto; /* Para que no rompa el disñeo si se ve desde una pantalla pequeña */
+}
+
+.tabla-admin {
+    width: 100%;
+    border-collapse: collapse; 
+    text-align: left;
+}
+
+/* Línea que separa los usuarios */
+.tabla-admin th, 
+.tabla-admin td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 15px;
+    color: #333; 
+}
+
+/* Fondo de los títulos de la tabla  */
+.tabla-admin th {
+    background-color: #f8fafc;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.tabla-admin tr:hover {
+    background-color: #f8fafc; 
+}
+
+
+/* ==========================================================================
+   ETIQUETAS DE ROL
+   ========================================================================== */
+
+.rol {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.rol-admin {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.rol-user {
+    background-color: #e0f2fe;
+    color: #0369a1;
+}
+
+
+/* ==========================================================================
+   BOTONES DE EDITAR Y ELIMINAR
+   ========================================================================== */
+
+.btn-accion {
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 5px;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.btn-editar {
+    background-color: #f1f5f9;
+    color: #334155;
+}
+
+.btn-editar:hover {
+    background-color: #e2e8f0;
+}
+
+.btn-eliminar {
+    background-color: #fee2e2;
+    color: #ef4444;
+}
+
+.btn-eliminar:hover {
+    background-color: #fca5a5;
+}
+
+
+/* ==========================================================================
+   FORMULARIOS
+   ========================================================================== */
+
+/* Separa los contenidos del formulario (nombre, correo, etc) */
+.formulario-admin {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Obliga a colocar los títulos encima de sus columnas, para que en otras pantallas no se rompa el diseño */
+.grupo-formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Títulos de los formularios */
+.grupo-formulario label {
+    display: block;
+    margin-bottom: 5px;
+    color: #64748b;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Estilo para las cajas de texto, fechas, horas y desplegables */
+.grupo-formulario input[type="text"],
+.grupo-formulario input[type="email"],
+.grupo-formulario input[type="password"],
+.grupo-formulario select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.grupo-formulario select {
+    background-color: white;
+}
+
+/* Modifica los textos con información secundaria (como el del cambio de contraseña) */
+.nota-opcional {
+    color: #94a3b8;
+    font-weight: normal;
+}
+
+.btn-volver-listado {
+    padding: 10px 20px;
+}
+
+.btn-actualizar-azul {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.btn-actualizar-azul:hover {
+    background-color: #2563eb;
+}
+
+/* Cuadro de aviso que salta si hay un error (Email duplicado o fallo en la base de datos) */
+.alerta-error {
+    color: #ef4444;
+    background-color: #fee2e2;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}

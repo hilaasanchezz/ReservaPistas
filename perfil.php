@@ -6,7 +6,7 @@ include('conexion.php');
 $email_sesion = $_SESSION['email'];
 
 try {
-    // Buscamos los datos actualizados del usuario en la base de datos
+    // Busca los datos actualizados del usuario en la base de datos
     $sql = "SELECT nombre, email FROM usuarios WHERE email = ?";
     $stmt = $conexion->prepare($sql);
     $stmt->execute([$email_sesion]);
