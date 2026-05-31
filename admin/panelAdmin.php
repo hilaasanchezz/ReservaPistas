@@ -60,9 +60,8 @@ try {
             </div>
             <nav class="menu-admin">
                 <a href="#" class="active">📊 Panel Principal</a>
-                <a href="#">📅 Reservas Activas</a>
+                <a href="editorReservas.php">📅 Reservas Activas</a>
                 <a href="editorUsuarios.php">👥 Usuarios</a>
-                <a href="#">🎾 Gestionar Pistas (PRÓXIMAMENTE)</a>
                 <a href="../index.php" class="btn-volver">Visitar la Web</a>
             </nav>
         </aside>

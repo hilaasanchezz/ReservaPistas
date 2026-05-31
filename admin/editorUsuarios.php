@@ -140,7 +140,6 @@ try {
                 <a href="panelAdmin.php">📊 Panel Principal</a>
                 <a href="editorReservas.php">📅 Reservas Activas</a>
                 <a href="editorUsuarios.php" class="active">👥 Usuarios</a>
-                <a href="#">🎾 Gestionar Pistas (PRÓXIMAMENTE)</a>
                 <a href="../index.php" class="btn-volver">Visitar la Web</a>
             </nav>
         </aside>
