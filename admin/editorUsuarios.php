@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Si no ha iniciado sesión, o si ha iniciado sesión pero no es admin (es 0), lo echamos al login
+// Si no ha iniciado sesión, o si ha iniciado sesión pero no es admin (es 0), es devuelto al login
 if (!isset($_SESSION['id']) || $_SESSION['admin'] != 1) {
     header("Location: ../login.php");
     exit;
@@ -153,7 +153,7 @@ try {
                 </div>
             </header>
 
-            <?php if (isset($_GET['action']) && $_GET['action'] === 'editar' && $usuarioEditar): ?> // Comprueba si se va a editar un usuario y, además, confirma que los datos del usuario existan antes de cargar el formulario
+            <?php if (isset($_GET['action']) && $_GET['action'] === 'editar' && $usuarioEditar) { /* Comprueba si se va a editar un usuario y confirma que exista antes de cargar el formulario */ ?>
                 
                 <section class="gestion-seccion">
                     <div class="header-seccion">
@@ -161,9 +161,9 @@ try {
                         <a href="editorUsuarios.php" class="btn-editar btn-volver-listado">Volver al Listado</a>
                     </div>
 
-                    <?php if (!empty($error)): ?> // Si la variable error no está vacía, muestra lo siguiente
-                        <p class="alerta-error"><?php echo $error; ?></p> // Mensaje de error
-                    <?php endif; ?>
+                    <?php if (!empty($error)) { /* Si la variable error no está vacía, muestra el mensaje de error */ ?>
+                        <p class="alerta-error"><?php echo $error; ?></p>
+                    <?php } ?>
 
                     <form action="editorUsuarios.php?action=editar&id=<?php echo $usuarioEditar['id']; ?>" method="POST" class="formulario-admin">
                         <div class="grupo-formulario">
@@ -195,7 +195,7 @@ try {
                     </form>
                 </section>
 
-            <?php elseif (isset($_GET['action']) && $_GET['action'] === 'nuevo'): ?> // Comprueba si la URL indica que se va acrear un nuevo usuario
+            <?php } elseif (isset($_GET['action']) && $_GET['action'] === 'nuevo') { /* Comprueba si la URL indica que se va a crear un nuevo usuario */ ?>
                 
                 <section class="gestion-seccion">
                     <div class="header-seccion">
@@ -203,9 +203,9 @@ try {
                         <a href="editorUsuarios.php" class="btn-editar btn-volver-listado">Volver al Listado</a>
                     </div>
 
-                    <?php if (!empty($error)): ?> // Si la variable error no está vacía, muestra lo siguiente
-                        <p class="alerta-error"><?php echo $error; ?></p> // Mensaje de error
-                    <?php endif; ?>
+                    <?php if (!empty($error)) { /* Si la variable error no está vacía, muestra el mensaje de error */ ?>
+                        <p class="alerta-error"><?php echo $error; ?></p>
+                    <?php } ?>
 
                     <form action="editorUsuarios.php?action=nuevo" method="POST" class="formulario-admin">
                         <div class="grupo-formulario">
@@ -237,7 +237,7 @@ try {
                     </form>
                 </section>
 
-            <?php else: ?>
+            <?php } else { ?>
 
                 <section class="gestion-seccion">
                     <div class="header-seccion">
@@ -257,7 +257,7 @@ try {
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($usuarios as $user): ?>
+                                <?php foreach ($usuarios as $user) { ?>
                                 <tr>
                                     <td><?php echo $user['id']; ?></td>
                                     <td><?php echo $user['nombre']; ?></td>
@@ -274,13 +274,13 @@ try {
                                            onclick="return confirm('¿Seguro que quieres eliminar a este usuario?');">Eliminar</a>
                                     </td>
                                 </tr>
-                                <?php endforeach; ?>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>
                 </section>
 
-            <?php endif; ?>
+            <?php } ?>
         </main>
 
     </div>
